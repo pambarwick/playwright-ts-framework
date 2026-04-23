@@ -68,4 +68,4 @@ npx playwright test src/tests/inventory.spec.ts
 
 ## Author
 
-[Your Name] · [LinkedIn](#) · [GitHub](#)
+Pamela Barwick · [LinkedIn](https://www.linkedin.com/in/pamela-barwick-84329117b) · [GitHub](https://github.com/pambarwick)
