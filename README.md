@@ -1,6 +1,6 @@
 # Playwright TypeScript Framework
 
-![Playwright Tests](https://github.com/YOUR-GITHUB-USERNAME/playwright-ts-framework/actions/workflows/playwright.yml/badge.svg)
+![Playwright Tests](https://github.com/pambarwick/playwright-ts-framework/actions/workflows/playwright.yml/badge.svg)
 
 A clean, maintainable end-to-end test automation framework built with Playwright and TypeScript. Tests run against real applications with no mocked backends.
 
