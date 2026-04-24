@@ -25,22 +25,22 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts'],
+      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts', '**/checkout.spec.ts'],
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'firefox',
-      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts'],
+      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts', '**/checkout.spec.ts'],
       use: { ...devices['Desktop Firefox'] },
     },
     {
       name: 'webkit',
-      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts'],
+      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts', '**/checkout.spec.ts'],
       use: { ...devices['Desktop Safari'] },
     },
     {
       name: 'mobile',
-      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts'],
+      testMatch: ['**/login.spec.ts', '**/inventory.spec.ts', '**/checkout.spec.ts'],
       use: { ...devices['Pixel 5'] },
     },
     {
