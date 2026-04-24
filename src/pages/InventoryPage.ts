@@ -50,6 +50,16 @@ export class InventoryPage extends BasePage {
     return this.page.locator('[data-test="inventory-item-price"]');
   }
 
+  async goToCart() {
+    await this.clickElement(this.cartLink);
+  }
+
+  async clickProduct(productName: string) {
+    await this.clickElement(
+      this.page.locator('[data-test="inventory-item-name"]', { hasText: productName })
+    );
+  }
+
   async logout() {
     await this.clickElement(this.burgerMenuButton);
     await this.logoutLink.waitFor({ state: 'visible' });
