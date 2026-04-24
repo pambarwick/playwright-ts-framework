@@ -58,12 +58,34 @@ test.describe('Checkout', () => {
     await checkoutPage.assertErrorMessage('Postal Code is required');
   });
 
+  test('order summary shows correct item and price on step 2', async ({ inventoryPage, cartPage, checkoutPage }) => {
+    await inventoryPage.addToCart('sauce-labs-backpack');
+    await inventoryPage.clickElement(inventoryPage.cartLink);
+    await cartPage.proceedToCheckout();
+    await checkoutPage.fillInfo('Jane', 'Doe', '12345');
+    await checkoutPage.assertOnStep2();
+    await checkoutPage.assertSummaryContains('Sauce Labs Backpack', '29.99');
+  });
+
+  test('checkout completes for performance_glitch_user', async ({ loginPage, inventoryPage, cartPage, checkoutPage, page }) => {
+    test.setTimeout(60000);
+    await page.goto('/');
+    await loginPage.login('performance_glitch_user', PASSWORD);
+    await expect(page).toHaveURL(/inventory/);
+    await inventoryPage.addToCart('sauce-labs-backpack');
+    await inventoryPage.clickElement(inventoryPage.cartLink);
+    await cartPage.proceedToCheckout();
+    await checkoutPage.fillInfo('Jane', 'Doe', '12345');
+    await checkoutPage.finish();
+    await checkoutPage.assertOrderComplete();
+  });
+
   test('can cancel checkout and return to cart', async ({ inventoryPage, cartPage, checkoutPage, page }) => {
     await inventoryPage.addToCart('sauce-labs-backpack');
     await inventoryPage.clickElement(inventoryPage.cartLink);
     await cartPage.proceedToCheckout();
     await checkoutPage.assertOnStep1();
-    await checkoutPage.clickElement(checkoutPage.cancelButton);
+    await checkoutPage.cancel();
     await expect(page).toHaveURL(/cart/);
   });
 });
